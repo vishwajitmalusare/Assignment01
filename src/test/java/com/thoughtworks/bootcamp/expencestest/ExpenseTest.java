@@ -10,16 +10,30 @@ import java.util.List;
 
 public class ExpenseTest {
     @Test
-    void givenPersonASpentZeroFroPersonBAndC_whenCalculate_thenReturnExpencesZero(){
+    void givenPersonASpentZeroFroPersonBAndC_whenCalculate_thenReturnExpencesZero() {
         float spend = 0.0f;
-        Person personA = new Person(1,"A",0,0);
-        Person personB = new Person(1,"B",0,0);
-        Person personC = new Person(1,"C",0,0);
+        Person personA = new Person(1, "A", 0, 0);
+        Person personB = new Person(1, "B", 0, 0);
+        Person personC = new Person(1, "C", 0, 0);
         List<Person> personList = new ArrayList<Person>();
         personList.add(personA);
         personList.add(personB);
         personList.add(personC);
-        MyExpences expencesObject = new MyExpences(personA,personList,spend);
-        Assertions.assertEquals(0,expencesObject.calculateExpense());
+        MyExpences expencesObject = new MyExpences(personA, personList, spend);
+        Assertions.assertEquals(0, expencesObject.calculateExpenseForZero());
+    }
+
+    @Test
+    void givenPersonASpent300FroPersonBAndC_whenCalculate_thenReturnExpencesZero() {
+        float spend = 300.0f;
+        Person personA = new Person(1, "A", 0, 0);
+        Person personB = new Person(1, "B", 0, 0);
+        Person personC = new Person(1, "C", 0, 0);
+        List<Person> personList = new ArrayList<Person>();
+        personList.add(personA);
+        personList.add(personB);
+        personList.add(personC);
+        MyExpences expencesObject = new MyExpences(personA, personList, spend);
+        Assertions.assertEquals(200.0f, expencesObject.calculateExpenseFor300());
     }
 }

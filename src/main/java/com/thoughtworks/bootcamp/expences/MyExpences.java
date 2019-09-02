@@ -12,7 +12,11 @@ public class MyExpences {
         this.personList = personList;
         this.spend=spend;
     }
-    public float calculateExpense() {
+    public float calculateExpenseForZero() {
         return 0.0f;
+    }
+
+    public float calculateExpenseFor300() {
+        return spend - (spend/personList.size());
     }
 }
